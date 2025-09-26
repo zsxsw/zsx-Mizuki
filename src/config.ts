@@ -32,24 +32,25 @@ export const siteConfig: SiteConfig = {
 	},
 
 	translate: {
-		enable: true, // 启用翻译功能
+		enable: false, // 启用翻译功能
 		service: "client.edge", // 使用 Edge 浏览器翻译服务
 		defaultLanguage: getTranslateLanguageFromConfig(SITE_LANG), // 根据站点语言自动设置默认翻译语言
-		showSelectTag: false, // 不显示默认语言选择下拉菜单，使用自定义按钮
+		showSelectTag: true, // 不显示默认语言选择下拉菜单，使用自定义按钮
 		autoDiscriminate: true, // 自动检测用户语言
 		ignoreClasses: ["ignore", "banner-title", "banner-subtitle"], // 翻译时忽略的 CSS 类名
 		ignoreTags: ["script", "style", "code", "pre"], // 翻译时忽略的 HTML 标签
 	},
 	bangumi: {
-		userId: "your-bangumi-id", // 在此处设置你的Bangumi用户ID，可以设置为 "sai" 测试
+		userId: "kemiao", // 在此处设置你的Bangumi用户ID，可以设置为 "sai" 测试
 	},
-  
+
 	anime: {
-		mode: "local", // 番剧页面模式："bangumi" 使用Bangumi API，"local" 使用本地配置
+		mode: "bangumi", // 番剧页面模式："bangumi" 使用Bangumi API，"local" 使用本地配置
 	},
 
 	banner: {
 		enable: true, // 是否启动Banner壁纸模式
+
 
 		// 支持单张图片或图片数组，当数组长度 > 1 时自动启用轮播
 		src: {
@@ -91,7 +92,6 @@ export const siteConfig: SiteConfig = {
 		// 这里需要使用PicFlow API的Text返回类型,所以我们需要format=text参数
 		// 项目地址:https://github.com/matsuzaka-yuki/PicFlow-API
 		// 请自行搭建API
-
 		homeText: {
 			enable: true, // 在主页显示自定义文本
 			title: "欢迎来到ZSXの小站", // 主页横幅主标题
@@ -129,11 +129,11 @@ export const siteConfig: SiteConfig = {
 	generateOgImages: false, // 启用生成OpenGraph图片功能,注意开启后要渲染很长时间，不建议本地调试的时候开启
 	favicon: [
 		// 留空以使用默认 favicon
-		{
-		  src: 'https://img.314926.xyz/images/2025/09/20/zsx-avatar.webp',    // 图标文件路径
-		  theme: 'light',              // 可选，指定主题 'light' | 'dark'
-		  sizes: '32x32',              // 可选，图标大小
-		}
+		// {
+		//   src: 'https://img.314926.xyz/images/2025/09/20/zsx-avatar.webp',    // 图标文件路径
+		//   theme: 'light',              // 可选，指定主题 'light' | 'dark'
+		//   sizes: '32x32',              // 可选，图标大小
+		// }
 	],
 
 	// 字体配置
@@ -145,7 +145,7 @@ export const siteConfig: SiteConfig = {
 			enable: true, // 启用 Hanalei 字体作为全局字体，适合中文去使用
 		},
 	},
-	showLastModified: true, // 控制“上次编辑”卡片显示的开关
+	showLastModified: true
 };
 export const fullscreenWallpaperConfig: FullscreenWallpaperConfig = {
 	enable: true, // 启用全屏壁纸功能,非Banner模式下生效
@@ -216,14 +216,19 @@ export const navBarConfig: NavBarConfig = {
 			],
 		},
 		{
-			name: "My",
+			name: "我的",
 			url: "/content/",
 			icon: "material-symbols:person",
 			children: [
 				LinkPreset.Anime,
-				LinkPreset.Diary,
 				{
-					name: "Gallery",
+					name: "微语",
+					url: "/memos/",
+					icon: "streamline-ultimate:notes-book-bold",
+				},				
+				// LinkPreset.Diary,
+				{
+					name: "相册",
 					url: "/albums/",
 					icon: "material-symbols:photo-library",
 				},
@@ -236,22 +241,22 @@ export const navBarConfig: NavBarConfig = {
 			// children: [LinkPreset.About, LinkPreset.Friends],
 		},
 		{
-			name: "Others",
+			name: "更多",
 			url: "#",
 			icon: "material-symbols:more-horiz",
 			children: [
 				{
-					name: "Projects",
+					name: "项目",
 					url: "/projects/",
 					icon: "material-symbols:work",
 				},
 				{
-					name: "Skills",
+					name: "技能",
 					url: "/skills/",
 					icon: "material-symbols:psychology",
 				},
 				{
-					name: "Timeline",
+					name: "时间线",
 					url: "/timeline/",
 					icon: "material-symbols:timeline",
 				},
@@ -266,24 +271,24 @@ export const profileConfig: ProfileConfig = {
 	bio: "造化钟神秀，阴阳割昏晓。",
 	links: [
 		{
-			name: "Bilibli",
-			icon: "fa6-brands:bilibili",
-			url: "https://space.bilibili.com/701864046",
+			name: "mail",
+			icon: "lucide:mail",
+			url: "htmailto:zsx@zhzsx.cn",
 		},
 		{
-			name: "Gitee",
-			icon: "mdi:git",
-			url: "https://gitee.com/matsuzakayuki",
+			name: "Telegram",
+			icon: "mdi:telegram",
+			url: "https://t.me/zhzsx_me",
 		},
 		{
 			name: "GitHub",
 			icon: "fa6-brands:github",
-			url: "https://github.com/matsuzaka-yuki",
+			url: "https://github.com/zsxsw",
 		},
 		{
-			name: "Discord",
-			icon: "fa6-brands:discord",
-			url: "https://discord.gg/MqW6TcQtVM",
+			name: "QQ",
+			icon: "fa6-brands:qq",
+			url: "https://qm.qq.com/q/6SICgaZ5kY",
 		},
 	],
 };
@@ -301,7 +306,7 @@ export const expressiveCodeConfig: ExpressiveCodeConfig = {
 };
 
 export const commentConfig: CommentConfig = {
-	enable: false, // 启用评论功能。当设置为 false 时，评论组件将不会显示在文章区域。
+	enable: true, // 启用评论功能。当设置为 false 时，评论组件将不会显示在文章区域。
 	twikoo: {
 		envId: "https://kemiao-twikoo.050815.xyz",
 		lang: "zh", // 设置 Twikoo 评论系统语言为英文
@@ -469,7 +474,7 @@ export const sakuraConfig: SakuraConfig = {
 
 // Pio 看板娘配置
 export const pioConfig: import("./types/config").PioConfig = {
-	enable: false, // 启用看板娘
+	enable: true, // 启用看板娘
 	models: ["/pio/models/pio/model.json"], // 默认模型路径
 	position: "left", // 默认位置在右侧
 	width: 280, // 默认宽度
@@ -487,7 +492,7 @@ export const pioConfig: import("./types/config").PioConfig = {
 		home: "Click here to go back to homepage!", // 首页提示
 		skin: ["Want to see my new outfit?", "The new outfit looks great~"], // 换装提示
 		close: "QWQ See you next time~", // 关闭提示
-		link: "https://github.com/matsuzaka-yuki/Mizuki", // 关于链接
+		link: "https://github.com/zsxsw", // 关于链接
 	},
 };
 

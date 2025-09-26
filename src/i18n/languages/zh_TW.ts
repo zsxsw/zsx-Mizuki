@@ -69,6 +69,9 @@ export const zh_TW: Translation = {
 	[Key.diaryMinutesAgo]: "分鐘前",
 	[Key.diaryHoursAgo]: "小時前",
 	[Key.diaryDaysAgo]: "天前",
+	
+	// 微語頁面
+	[Key.memos]: "微語",
 
 	// 404頁面
 	[Key.notFound]: "404",
@@ -90,7 +93,7 @@ export const zh_TW: Translation = {
 
 	// 專案頁面
 	[Key.projects]: "專案",
-	[Key.projectsSubtitle]: "我的開發專案展示",
+	[Key.projectsSubtitle]: "我部署和推薦的專案",
 	[Key.projectsAll]: "全部",
 	[Key.projectsWeb]: "網頁",
 	[Key.projectsMobile]: "行動",
@@ -187,6 +190,16 @@ export const zh_TW: Translation = {
 	[Key.autoSyntaxHighlightFailed]: "自動語法高亮也失敗了：",
 	[Key.decryptionError]: "解密過程中發生錯誤：",
 
+	// memos页面
+	[Key.memosSubtitle]: "記錄生活的點點滴滴",
+	[Key.memosCount]: "條短文",
+	[Key.memosImage]: "圖片",
+	[Key.memosReply]: "回覆！",
+	[Key.memosTips]: "只展示最近30條微語",
+	[Key.memosMinutesAgo]: "分鐘前",
+	[Key.memosHoursAgo]: "小時前",
+	[Key.memosDaysAgo]: "天前",
+
 	// RSS
 	[Key.rss]: "RSS 訂閱",
 	[Key.rssDescription]: "訂閱獲取最新更新",
@@ -205,14 +218,4 @@ export const zh_TW: Translation = {
 	[Key.rssHowToUse]: "推薦使用 Feedly、Inoreader 或其他 RSS 閱讀器來訂閱本站。",
 	[Key.rssCopied]: "RSS 連結已複製到剪貼簿！",
 	[Key.rssCopyFailed]: "複製失敗，請手動複製連結",
-
-	//最後編輯時間卡片
-	[Key.lastModifiedPrefix]: "距離上次編輯: ",
-	[Key.lastModifiedOutdated]: "部分信息可能已經過時",
-	[Key.year]: "年",
-	[Key.month]: "月",
-	[Key.day]: "天",
-	[Key.hour]: "小時",
-	[Key.minute]: "分",
-	[Key.second]: "秒",
 };

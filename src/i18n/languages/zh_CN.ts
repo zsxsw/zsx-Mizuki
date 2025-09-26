@@ -45,6 +45,9 @@ export const zh_CN: Translation = {
 	[Key.anime]: "追番",
 	[Key.diary]: "日记",
 
+	// memos
+	[Key.memos]: "微语",
+
 	// 番剧页面
 	[Key.animeTitle]: "我的追番记录",
 	[Key.animeSubtitle]: "记录我的二次元之旅",
@@ -72,6 +75,16 @@ export const zh_CN: Translation = {
 	[Key.diaryHoursAgo]: "小时前",
 	[Key.diaryDaysAgo]: "天前",
 
+	// memos页面
+	[Key.memosSubtitle]: "记录生活的点点滴滴",
+	[Key.memosCount]: "条短文",
+	[Key.memosImage]: "图片",
+	[Key.memosReply]: "回复！",
+	[Key.memosTips]: "只展示最近30条微语",
+	[Key.memosMinutesAgo]: "分钟前",
+	[Key.memosHoursAgo]: "小时前",
+	[Key.memosDaysAgo]: "天前",
+
 	// 404页面
 	[Key.notFound]: "404",
 	[Key.notFoundTitle]: "页面未找到",
@@ -92,7 +105,7 @@ export const zh_CN: Translation = {
 
 	// 项目展示页面
 	[Key.projects]: "项目展示",
-	[Key.projectsSubtitle]: "我的开发项目作品集",
+	[Key.projectsSubtitle]: "我部署和推荐的项目",
 	[Key.projectsAll]: "全部",
 	[Key.projectsWeb]: "网页应用",
 	[Key.projectsMobile]: "移动应用",
@@ -207,14 +220,4 @@ export const zh_CN: Translation = {
 	[Key.syntaxHighlightFailed]: "语法高亮失败:",
 	[Key.autoSyntaxHighlightFailed]: "自动语法高亮也失败:",
 	[Key.decryptionError]: "解密过程中发生错误:",
-
-	//最后编辑时间卡片
-	[Key.lastModifiedPrefix]: "距离上次编辑: ",
-	[Key.lastModifiedOutdated]: "部分信息可能已经过时",
-	[Key.year]: "年",
-	[Key.month]: "月",
-	[Key.day]: "天",
-	[Key.hour]: "小时",
-	[Key.minute]: "分",
-	[Key.second]: "秒",
 };

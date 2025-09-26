@@ -46,6 +46,9 @@ export const ja: Translation = {
 	[Key.anime]: "アニメ",
 	[Key.diary]: "つぶやき",
 
+	// ミニブログ
+	[Key.memos]: "ミニブログ",
+
 	// 番剧页面
 	[Key.animeTitle]: "アニメコレクション",
 	[Key.animeSubtitle]: "私のアニメ旅行記録",
@@ -70,6 +73,16 @@ export const ja: Translation = {
 	[Key.diaryHoursAgo]: "時間前",
 	[Key.diaryDaysAgo]: "日前",
 
+	// memos页面
+	[Key.memosSubtitle]: "人生のあらゆる瞬間を記録する",
+	[Key.memosCount]: "短い記事",
+	[Key.memosImage]: "写真",
+	[Key.memosReply]: "返事！",
+	[Key.memosTips]: "最新の30件のマイクロブログのみ表示",
+	[Key.memosMinutesAgo]: "数分前",
+	[Key.memosHoursAgo]: "数時間前",
+	[Key.memosDaysAgo]: "数日前",
+
 	// 404ページ
 	[Key.notFound]: "404",
 	[Key.notFoundTitle]: "ページが見つかりません",
@@ -92,7 +105,7 @@ export const ja: Translation = {
 
 	// プロジェクトページ
 	[Key.projects]: "プロジェクト",
-	[Key.projectsSubtitle]: "開発プロジェクトのショーケース",
+	[Key.projectsSubtitle]: "私がデプロイして推薦したプロジェクト",
 	[Key.projectsAll]: "すべて",
 	[Key.projectsWeb]: "ウェブ",
 	[Key.projectsMobile]: "モバイル",
@@ -211,14 +224,4 @@ export const ja: Translation = {
 	[Key.syntaxHighlightFailed]: "シンタックスハイライトに失敗しました:",
 	[Key.autoSyntaxHighlightFailed]: "自動シンタックスハイライトも失敗しました:",
 	[Key.decryptionError]: "復号化中にエラーが発生しました:",
-
-	//最後編集時間卡片
-	[Key.lastModifiedPrefix]: "最終編集から: ",
-	[Key.lastModifiedOutdated]: "一部の情報は古くなっている可能性があります",
-	[Key.year]: "年",
-	[Key.month]: "月",
-	[Key.day]: "日",
-	[Key.hour]: "時間",
-	[Key.minute]: "分",
-	[Key.second]: "秒",
 };

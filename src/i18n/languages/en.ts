@@ -46,6 +46,9 @@ export const en: Translation = {
 	[Key.anime]: "Anime",
 	[Key.diary]: "Moments",
 
+	// memos
+	[Key.memos]: "Memos",
+
 	// 番剧页面
 	[Key.animeTitle]: "My Anime Collection",
 	[Key.animeSubtitle]: "Documenting my anime journey",
@@ -74,6 +77,16 @@ export const en: Translation = {
 	[Key.diaryHoursAgo]: "hours ago",
 	[Key.diaryDaysAgo]: "days ago",
 
+	// memos页面
+	[Key.memosSubtitle]: "Record every bit of life",
+	[Key.memosCount]: "Short Article",
+	[Key.memosImage]: "picture",
+	[Key.memosReply]: "reply！",
+	[Key.memosTips]: "Only show the latest 30 microblogs",
+	[Key.memosMinutesAgo]: "minutes ago",
+	[Key.memosHoursAgo]: "hours ago",
+	[Key.memosDaysAgo]: "days ago",
+
 	// 404页面
 	[Key.notFound]: "404",
 	[Key.notFoundTitle]: "Page Not Found",
@@ -96,7 +109,7 @@ export const en: Translation = {
 
 	// Projects page
 	[Key.projects]: "Projects",
-	[Key.projectsSubtitle]: "Showcase of my development projects",
+	[Key.projectsSubtitle]: "The projects I deployed and recommended",
 	[Key.projectsAll]: "All",
 	[Key.projectsWeb]: "Web",
 	[Key.projectsMobile]: "Mobile",
@@ -215,14 +228,4 @@ export const en: Translation = {
 	[Key.syntaxHighlightFailed]: "Syntax highlighting failed:",
 	[Key.autoSyntaxHighlightFailed]: "Auto syntax highlighting also failed:",
 	[Key.decryptionError]: "An error occurred during decryption:",
-
-	// Last Modified Card
-	[Key.lastModifiedPrefix]: "Last modified: ",
-	[Key.lastModifiedOutdated]: "Some information may be outdated",
-	[Key.year]: "Y ",
-	[Key.month]: "M ",
-	[Key.day]: "D ",
-	[Key.hour]: "H ",
-	[Key.minute]: "Min ",
-	[Key.second]: "Sec",
 };

@@ -42,6 +42,7 @@ enum I18nKey {
 	friends = "friends",
 	anime = "anime",
 	diary = "diary",
+	memos = "memos",
 
 	// 番剧页面
 	animeTitle = "animeTitle",
@@ -69,6 +70,16 @@ enum I18nKey {
 	diaryMinutesAgo = "diaryMinutesAgo",
 	diaryHoursAgo = "diaryHoursAgo",
 	diaryDaysAgo = "diaryDaysAgo",
+
+	// memos页面
+	memosSubtitle = "memosSubtitle",
+	memosCount = "memosCount",
+	memosImage = "memosImage",
+	memosReply = "memosReply",
+	memosTips = "memosTips",
+	memosMinutesAgo = "memosMinutesAgo",
+	memosHoursAgo = "memosHoursAgo",
+	memosDaysAgo = "memosDaysAgo",
 
 	// 404页面
 	notFound = "notFound",
@@ -204,16 +215,6 @@ enum I18nKey {
 	syntaxHighlightFailed = "syntaxHighlightFailed",
 	autoSyntaxHighlightFailed = "autoSyntaxHighlightFailed",
 	decryptionError = "decryptionError",
-
-	//最后编辑时间卡片
-	lastModifiedPrefix = "lastModifiedPrefix",
-	lastModifiedOutdated = "lastModifiedOutdated",
-	year = "year",
-	month = "month",
-	day = "day",
-	hour = "hour",
-	minute = "minute",
-	second = "second",
 }
 
 export default I18nKey;

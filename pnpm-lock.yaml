@@ -50,9 +50,15 @@ importers:
       '@iconify-json/icon-park-solid':
         specifier: ^1.2.4
         version: 1.2.4
+      '@iconify-json/lucide':
+        specifier: ^1.2.68
+        version: 1.2.68
       '@iconify-json/material-symbols':
         specifier: ^1.2.34
         version: 1.2.34
+      '@iconify-json/streamline-ultimate':
+        specifier: ^1.2.2
+        version: 1.2.2
       '@iconify-json/tabler':
         specifier: ^1.2.23
         version: 1.2.23
@@ -1120,11 +1126,17 @@ packages:
   '@iconify-json/icon-park-solid@1.2.4':
     resolution: {integrity: sha512-030MChSP6lCY7N+U5J5R7YguHTGcm7qQEI/ivBjk77El/i8yJatoj568cwwXGM8c6HEU/kIxEE4m3O/6w0WBGg==}
 
+  '@iconify-json/lucide@1.2.68':
+    resolution: {integrity: sha512-lR5xNJdn2CT0iR7lM25G4SewBO4G2hbr3fTWOc3AE9BspflEcneh02E3l9TBaCU/JOHozTJevWLrxBGypD7Tng==}
+
   '@iconify-json/material-symbols@1.2.34':
     resolution: {integrity: sha512-qOn1q0lMlLvSHTci0sabhKbfQ3h2XfahsoSWMy2X7eITQRoKrENuFKPB9x2bpvq+d1XxPiz/4UTFgfy/ejiFmg==}
 
   '@iconify-json/mdi@1.2.3':
     resolution: {integrity: sha512-O3cLwbDOK7NNDf2ihaQOH5F9JglnulNDFV7WprU2dSoZu3h3cWH//h74uQAB87brHmvFVxIOkuBX2sZSzYhScg==}
+
+  '@iconify-json/streamline-ultimate@1.2.2':
+    resolution: {integrity: sha512-0Vz9UHgMrmRUYt3JFqm0E6PDdroItVqK4fKf3T72jVwS2MAmc8dcqvCy+f0hzOVzJfo3G34ejFA9Y8l/K44hTQ==}
 
   '@iconify-json/tabler@1.2.23':
     resolution: {integrity: sha512-Knb8ykgMwB5uSoqrDv1xIdJYM03OP06OXjN6QvGXaTNtdHkW9ciKA+aftz6lwM2jwJA+bsUWeDzLBlPt2uJm4w==}
@@ -6349,11 +6361,19 @@ snapshots:
     dependencies:
       '@iconify/types': 2.0.0
 
+  '@iconify-json/lucide@1.2.68':
+    dependencies:
+      '@iconify/types': 2.0.0
+
   '@iconify-json/material-symbols@1.2.34':
     dependencies:
       '@iconify/types': 2.0.0
 
   '@iconify-json/mdi@1.2.3':
+    dependencies:
+      '@iconify/types': 2.0.0
+
+  '@iconify-json/streamline-ultimate@1.2.2':
     dependencies:
       '@iconify/types': 2.0.0
 
