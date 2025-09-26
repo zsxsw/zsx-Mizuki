@@ -25,10 +25,12 @@ import { parseDirectiveNode } from "./src/plugins/remark-directive-rehype.js";
 import { remarkExcerpt } from "./src/plugins/remark-excerpt.js";
 import { remarkMermaid } from "./src/plugins/remark-mermaid.js";
 import { remarkReadingTime } from "./src/plugins/remark-reading-time.mjs";
+import vercel from '@astrojs/vercel/serverless';
 // https://astro.build/config
 export default defineConfig({
-	site: "https://me.zhzsx.cn/",
-
+	site: "https://zsx.zhzsx.cn/",
+    output: 'server', // 启用 SSR
+    adapter: vercel(), // 使用 Cloudflare 适配器
 	base: "/",
 	trailingSlash: "always",
 	integrations: [

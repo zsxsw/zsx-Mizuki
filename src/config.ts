@@ -145,10 +145,10 @@ export const siteConfig: SiteConfig = {
 			enable: true, // 启用 Hanalei 字体作为全局字体，适合中文去使用
 		},
 	},
-	showLastModified: true
+	showLastModified: false
 };
 export const fullscreenWallpaperConfig: FullscreenWallpaperConfig = {
-	enable: true, // 启用全屏壁纸功能,非Banner模式下生效
+	enable: false, // 启用全屏壁纸功能,非Banner模式下生效
 	src: {
 		desktop: [
 			"/assets/desktop-banner/d1.webp",
