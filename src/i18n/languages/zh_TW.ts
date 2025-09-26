@@ -147,6 +147,7 @@ export const zh_TW: Translation = {
 	[Key.timelineWork]: "工作",
 	[Key.timelineProject]: "專案",
 	[Key.timelineAchievement]: "成就",
+	[Key.timelineDiary]: "生活",
 	[Key.timelinePresent]: "現在",
 	[Key.timelineLocation]: "地點",
 	[Key.timelineDescription]: "描述",

@@ -149,6 +149,7 @@ export const ja: Translation = {
 	[Key.timelineWork]: "仕事",
 	[Key.timelineProject]: "プロジェクト",
 	[Key.timelineAchievement]: "成果",
+	[Key.timelineDiary]: "日記",
 	[Key.timelinePresent]: "現在",
 	[Key.timelineLocation]: "場所",
 	[Key.timelineDescription]: "説明",

@@ -1,0 +1,25 @@
+---
+// src/components/FriendCard.astro
+const { friend } = Astro.props;
+---
+
+<div class="friend-card">
+  <a href={friend.siteurl} target="_blank" rel="noopener noreferrer">
+    <img src={friend.imgurl} alt={friend.title} onError="this.src='https://fastly.jsdelivr.net/gh/Rock-Candy-Tea/Friend-Circle-Frontend/logo.png'" />
+  </a>
+  <div class="friend-card-content">
+    <h3 class="friend-card-title">{friend.title}</h3>
+    <p class="friend-card-desc">{friend.desc}</p>
+    <div class="friend-card-tags">
+      {friend.tags.map(tag => (
+        <span class="friend-card-tag">{tag}</span>
+      ))}
+    </div>
+    <a href={friend.siteurl} target="_blank" rel="noopener noreferrer" class="mt-3 inline-flex items-center text-primary-600 dark:text-primary-400 hover:underline">
+      访问网站
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+      </svg>
+    </a>
+  </div>
+</div>

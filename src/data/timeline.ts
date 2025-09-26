@@ -5,7 +5,7 @@ export interface TimelineItem {
 	id: string;
 	title: string;
 	description: string;
-	type: "education" | "work" | "project" | "achievement";
+	type: 'education' | 'work' | 'project' | 'achievement' | 'diary';
 	startDate: string;
 	endDate?: string; // If empty, it means current
 	location?: string;
@@ -25,209 +25,103 @@ export interface TimelineItem {
 
 export const timelineData: TimelineItem[] = [
 	{
-		id: "current-study",
-		title: "Studying Computer Science and Technology",
-		description:
-			"Currently studying Computer Science and Technology, focusing on web development and software engineering.",
-		type: "education",
-		startDate: "2022-09-01",
-		location: "Beijing",
-		organization: "Beijing Institute of Technology",
-		skills: ["Java", "Python", "JavaScript", "HTML/CSS", "MySQL"],
-		achievements: [
-			"Current GPA: 3.6/4.0",
-			"Completed data structures and algorithms course project",
-			"Participated in multiple course project developments",
-		],
-		icon: "material-symbols:school",
-		color: "#059669",
-		featured: true,
-	},
-	{
-		id: "mizuki-blog-project",
-		title: "Mizuki Personal Blog Project",
-		description:
-			"A personal blog website developed using the Astro framework as a practical project for learning frontend technologies.",
-		type: "project",
-		startDate: "2024-06-01",
-		endDate: "2024-08-01",
-		skills: ["Astro", "TypeScript", "Tailwind CSS", "Git"],
-		achievements: [
-			"Mastered modern frontend development tech stack",
-			"Learned responsive design and user experience optimization",
-			"Completed the full process from design to deployment",
-		],
-		links: [
-			{
-				name: "GitHub Repository",
-				url: "https://github.com/example/mizuki-blog",
-				type: "project",
-			},
-			{
-				name: "Live Demo",
-				url: "https://mizuki-demo.example.com",
-				type: "website",
-			},
-		],
-		icon: "material-symbols:code",
-		color: "#7C3AED",
-		featured: true,
-	},
-	{
-		id: "summer-internship-2024",
-		title: "Frontend Development Intern",
-		description:
-			"Summer internship at an internet company, participating in frontend development of web applications.",
-		type: "work",
-		startDate: "2024-07-01",
-		endDate: "2024-08-31",
-		location: "Beijing",
-		organization: "TechStart Internet Company",
-		position: "Frontend Development Intern",
-		skills: ["React", "JavaScript", "CSS3", "Git", "Figma"],
-		achievements: [
-			"Completed user interface component development",
-			"Learned team collaboration and code standards",
-			"Received outstanding internship performance certificate",
-		],
-		icon: "material-symbols:work",
-		color: "#DC2626",
-		featured: true,
-	},
-	{
-		id: "web-development-course",
-		title: "Completed Web Development Online Course",
-		description:
-			"Completed a full-stack web development online course, systematically learning frontend and backend development technologies.",
-		type: "achievement",
-		startDate: "2024-01-15",
-		endDate: "2024-05-30",
-		organization: "Mooc Website",
-		skills: ["HTML", "CSS", "JavaScript", "Node.js", "Express"],
-		achievements: [
-			"Received course completion certificate",
-			"Completed 5 practical projects",
-			"Mastered full-stack development fundamentals",
-		],
-		links: [
-			{
-				name: "Course Certificate",
-				url: "https://certificates.example.com/web-dev",
-				type: "certificate",
-			},
-		],
-		icon: "material-symbols:verified",
-		color: "#059669",
-	},
-	{
-		id: "student-management-system",
-		title: "Student Management System Course Project",
-		description:
-			"Final project for the database course, developed a complete student information management system.",
-		type: "project",
-		startDate: "2023-11-01",
-		endDate: "2023-12-15",
-		skills: ["Java", "MySQL", "Swing", "JDBC"],
-		achievements: [
-			"Received excellent course project grade",
-			"Implemented complete CRUD functionality",
-			"Learned database design and optimization",
-		],
-		icon: "material-symbols:database",
+		id: "telegram-experience",
+		title: "进驻TG",
+		description: "在TG找到了很多好用的资源，也以此为起点开始分享资源。",
+		type: "diary",
+		startDate: "2023-12-17",
+		location: "南京",
+		organization: "Telegram",
+		// position: "Software Development Intern",
+		// skills: ["JavaScript", "Vue.js", "Node.js", "MySQL"],
+		// achievements: [
+		// 	"",
+		// ],
+		icon: "mdi:telegram",
 		color: "#EA580C",
 	},
 	{
-		id: "programming-contest",
-		title: "University Programming Contest",
-		description:
-			"Participated in a programming contest held by the university, improving algorithm and programming skills.",
-		type: "achievement",
-		startDate: "2023-10-20",
-		location: "Beijing Institute of Technology",
-		organization: "School of Computer Science",
-		skills: ["C++", "Algorithms", "Data Structures"],
-		achievements: [
-			"Won third prize in university contest",
-			"Improved algorithmic thinking ability",
-			"Strengthened programming fundamentals",
+		id: "blog-building",
+		title: "博客搭建",
+		description: "搭建这个astro博客。",
+		type: "diary",
+		startDate: "2025-09-25",
+		location: "南京",
+		organization: "Astro",
+		// position: "Software Development Intern",
+		skills: ["JavaScript", "Vue.js", "Node.js", "Astro"],
+		// achievements: [
+		// 	"",
+		// ],
+		links: [
+			{
+				name: "自改代码源码",
+				url: "https://github.com/zsxsw/zsx-mizuki",
+				type: "project",
+			},
 		],
-		icon: "material-symbols:emoji-events",
-		color: "#7C3AED",
-	},
-	{
-		id: "part-time-tutor",
-		title: "Part-time Programming Tutor",
-		description:
-			"Provided programming tutoring for high school students, helping them learn Python basics.",
-		type: "work",
-		startDate: "2023-09-01",
-		endDate: "2024-01-31",
-		position: "Programming Tutor",
-		skills: ["Python", "Teaching", "Communication"],
-		achievements: [
-			"Helped 3 students master Python basics",
-			"Improved expression and communication skills",
-			"Gained teaching experience",
-		],
-		icon: "material-symbols:school",
+		icon: "material-symbols:rss-feed",
 		color: "#059669",
 	},
+	// {
+	// 	id: "hackathon-winner",
+	// 	title: "黑客马拉松比赛获奖",
+	// 	description: "在48小时内开发了一个创新的Web应用，获得了最佳技术实现奖。",
+	// 	type: "achievement",
+	// 	startDate: "2021-11-20",
+	// 	endDate: "2021-11-22",
+	// 	location: "上海",
+	// 	organization: "TechHackathon 2021",
+	// 	skills: ["React", "Express.js", "MongoDB", "Socket.io"],
+	// 	achievements: [
+	// 		"获得最佳技术实现奖",
+	// 		"团队协作完成复杂项目",
+	// 		"在短时间内学习新技术",
+	// 	],
+	// 	links: [
+	// 		{
+	// 			name: "Project Demo",
+	// 			url: "https://hackathon-project.example.com",
+	// 			type: "project",
+	// 		},
+	// 	],
+	// 	icon: "material-symbols:emoji-events",
+	// 	color: "#DC2626",
+	// },
 	{
-		id: "high-school-graduation",
-		title: "High School Graduation",
+		id: "resources-sharing",
+		title: "接触资源分享",
 		description:
-			"Graduated from high school with excellent grades and was admitted to the Computer Science and Technology program at Beijing Institute of Technology.",
-		type: "education",
-		startDate: "2019-09-01",
-		endDate: "2022-06-30",
-		location: "Jinan, Shandong",
-		organization: "No.1 High School of Jinan",
+			"第一次接触资源分享，在酷安、TG里面被大佬的分享的行动而开始自己的分享之旅。",
+		type: "diary",
+		startDate: "2023-11-01",
+		skills: ["app", "website", "exe"],
 		achievements: [
-			"College entrance exam score: 620",
-			"Received municipal model student award",
-			"Won provincial second prize in math competition",
-		],
-		icon: "material-symbols:school",
-		color: "#2563EB",
-	},
-	{
-		id: "first-programming-experience",
-		title: "First Programming Experience",
-		description:
-			"First encountered programming in high school IT class, started learning Python basic syntax.",
-		type: "education",
-		startDate: "2021-03-01",
-		skills: ["Python", "Basic Programming Concepts"],
-		achievements: [
-			'Completed first "Hello World" program',
-			"Learned basic loops and conditional statements",
-			"Developed interest in programming",
+			"通过分享资源帮助了身边的人",
+			"对相关的技术有了一些的理解和掌握",
 		],
 		icon: "material-symbols:code",
 		color: "#7C3AED",
 	},
 	{
-		id: "english-certificate",
-		title: "English CET-4 Certificate",
-		description:
-			"Passed the College English Test Band 4, acquired basic English reading and writing skills.",
-		type: "achievement",
-		startDate: "2023-06-15",
-		organization: "National College English Test Committee",
-		achievements: [
-			"CET-4 score: 550",
-			"Improved English technical documentation reading ability",
-			"Laid foundation for future study of foreign technical materials",
-		],
-		links: [
-			{
-				name: "CET-4 Certificate",
-				url: "https://certificates.example.com/cet4",
-				type: "certificate",
-			},
-		],
-		icon: "material-symbols:translate",
-		color: "#059669",
+		id: "education-experience",
+		title: "开始了大学生活",
+		description: "脱离高中的泥沼，开始了相对轻松的大学生活",
+		type: "education",
+		startDate: "2023-09-06",
+		location: "南京",
+		organization: "南工大",
+		skills: ["自动化"],
+		achievements: ["四六级过关"],
+		// links: [
+		// 	{
+		// 		name: "Project Demo",
+		// 		url: "https://hackathon-project.example.com",
+		// 		type: "project",
+		// 	},
+		// ],
+		icon: "material-symbols:school",
+		color: "#DC2626",
 	},
 ];
 

@@ -170,6 +170,7 @@ export const en: Translation = {
 	[Key.timelineWork]: "Work",
 	[Key.timelineProject]: "Project",
 	[Key.timelineAchievement]: "Achievement",
+	[Key.timelineDiary]: "Life Diary",
 	[Key.timelinePresent]: "Present",
 	[Key.timelineLocation]: "Location",
 	[Key.timelineDescription]: "Description",

@@ -1,0 +1,84 @@
+---
+import MainGridLayout from "../layouts/MainGridLayout.astro";
+import I18nKey from "../i18n/i18nKey";
+import { i18n } from "../i18n/translation";
+---
+
+<!-- 将配置提前注入到 <head> -->
+<script set:head>
+  var UserConfig = {
+    private_api_url: 'https://fc.kemeow.top/',
+    page_turning_number: 24,
+    error_img: 'https://pic.imgdb.cn/item/6695daa4d9c307b7e953ee3d.jpg',
+  };
+</script>
+<link set:head rel="stylesheet" href="https://fastly.jsdelivr.net/gh/willow-god/Friend-Circle-Lite/main/fclite.min.css">
+
+<MainGridLayout title={i18n(I18nKey.friends)} description={i18n(I18nKey.friends)}>
+  <div class="flex w-full rounded-[var(--radius-large)] overflow-hidden relative min-h-32">
+    <div class="card-base z-10 px-9 py-6 relative w-full">
+      <div class="my-4">
+        <div id="friend-circle-lite-root"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 加载脚本放在页面底部 -->
+  <script src="https://fastly.jsdelivr.net/gh/willow-god/Friend-Circle-Lite/main/fclite.min.js"></script>
+
+<!-- 放在 pyq.astro 末尾，</MainGridLayout> 之前 -->
+<script>
+  /* 当 DOM 插入完成再执行 */
+  function fixFCLiteDark() {
+    const root = document.getElementById('friend-circle-lite-root');
+    if (!root) return;
+
+    /* 1. 给挂载点打标记，方便后面写超高优先级选择器 */
+    document.documentElement.classList.add('fcl-ready');
+
+    /* 2. 把 FC-Lite 所有带 style 的节点刷成深色变量 */
+    const darkColor = getComputedStyle(document.documentElement)
+      .getPropertyValue('--fcl-text-primary')
+      .trim() || '#f9fafb';
+    const secondary = getComputedStyle(document.documentElement)
+      .getPropertyValue('--fcl-text-secondary')
+      .trim() || '#d1d5db';
+
+    root.querySelectorAll('*').forEach((el) => {
+      if (el.style.color) el.style.color = darkColor;
+      if (el.style.color && el.classList.contains('fclite-time')) {
+        el.style.color = secondary;
+      }
+    });
+  }
+
+  /* 3. 监听 FC-Lite 渲染完的信号（它会在 window 抛一个事件） */
+  window.addEventListener('fclite-mounted', fixFCLiteDark);
+
+  /* 4. 如果已经错过事件，保险起见 300 ms 后再刷一次 */
+  setTimeout(fixFCLiteDark, 300);
+</script>
+
+<!-- 5. 超高优先级深色覆盖表（is:global 保证全局生效） -->
+<style is:global>
+  /* 白天变量保持不变，这里只贴深色部分 */
+  .dark.fcl-ready #friend-circle-lite-root,
+  .dark.fcl-ready .fclite-card,
+  .dark.fcl-ready .fclite-title,
+  .dark.fcl-ready .fclite-desc,
+  .dark.fcl-ready .fclite-link,
+  .dark.fcl-ready .fclite-time {
+    color: var(--fcl-text-primary, #f9fafb) !important;
+  }
+
+  /* 链接高亮 */
+  .dark.fcl-ready .fclite-link {
+    color: var(--fcl-link, #60a5fa) !important;
+  }
+
+  /* 时间戳 */
+  .dark.fcl-ready .fclite-time {
+    color: var(--fcl-time, #9ca3af) !important;
+  }
+</style>
+</MainGridLayout>

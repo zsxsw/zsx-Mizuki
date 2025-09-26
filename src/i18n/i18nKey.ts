@@ -160,6 +160,7 @@ enum I18nKey {
 	timelineSubtitle = "timelineSubtitle",
 	timelineEducation = "timelineEducation",
 	timelineWork = "timelineWork",
+	timelineDiary = "timelineDiary",
 	timelineProject = "timelineProject",
 	timelineAchievement = "timelineAchievement",
 	timelinePresent = "timelinePresent",
