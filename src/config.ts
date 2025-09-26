@@ -221,11 +221,11 @@ export const navBarConfig: NavBarConfig = {
 			icon: "material-symbols:person",
 			children: [
 				LinkPreset.Anime,
-				// {
-				// 	name: "微语",
-				// 	url: "/memos/",
-				// 	icon: "streamline-ultimate:notes-book-bold",
-				// },				
+				{
+					name: "微语",
+					url: "/memos/",
+					icon: "streamline-ultimate:notes-book-bold",
+				},				
 				LinkPreset.Diary,
 				{
 					name: "相册",
