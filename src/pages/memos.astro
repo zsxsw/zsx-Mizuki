@@ -14,31 +14,33 @@ try {
   if (!res.ok) throw new Error("fetch failed");
   const list = await res.json();
 
-  moments = await Promise.all(list
-    .sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime())
-    .map(async (item) => {
-      const body = item.body || "";
-      const mdImgs = Array.from(body.matchAll(/!\[[^\]]*\]\(([^)]+)\)/g), (m: RegExpMatchArray) => m[1]);
-      const customImgs = Array.from(body.matchAll(/\[img\]([^\[]+)\[\/img\]/g), (m: RegExpMatchArray) => m[1]);
-      const images = [...mdImgs, ...customImgs];
+  moments = await Promise.all(
+    list
+      .sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime())
+      .map(async (item) => {
+        const body = item.body || "";
+        const mdImgs = Array.from(body.matchAll(/!\[[^\]]*\]\(([^)]+)\)/g), (m: RegExpMatchArray) => m[1]);
+        const customImgs = Array.from(body.matchAll(/\[img\]([^\[]+)\[\/img\]/g), (m: RegExpMatchArray) => m[1]);
+        const images = [...mdImgs, ...customImgs];
 
-      let html = await marked.parse(body);
-      const root = parse(html);
-      root.querySelectorAll("img").forEach(img => img.remove());
-      html = root.toString();
+        let html = await marked.parse(body);
+        const root = parse(html);
+        root.querySelectorAll("img").forEach((img) => img.remove());
+        html = root.toString();
 
-      return {
-        id: item.id,
-        content: html,
-        date: item.created_at,
-        images,
-      };
-    }));
+        return {
+          id: item.id,
+          content: html,
+          date: item.created_at,
+          images,
+        };
+      })
+  );
 } catch (e) {
   console.error("[memos] 拉取评论失败", e);
 }
 
-/* ---------- 2. 时间格式化：24h 内相对，之外具体日期 ---------- */
+/* ---------- 2. 时间格式化 ---------- */
 function formatTime(dateString: string): string {
   const now = new Date();
   const date = new Date(dateString);
@@ -60,17 +62,14 @@ function formatTime(dateString: string): string {
   <div class="flex w-full rounded-[var(--radius-large)] overflow-hidden relative min-h-32">
     <div class="card-base z-10 px-4 py-4 md:px-6 md:py-5 relative w-full">
       <div class="relative max-w-4xl">
-        <!-- 页面头部：背景图 + 遮罩 + 标题/副标题左下角 + 数量右下角 -->
+        <!-- 头部 -->
         <div class="moments-header mb-6 relative py-10 md:py-12 bg-cover bg-center text-white overflow-hidden rounded-xl">
           <div class="absolute inset-0 bg-gradient-to-br from-black/50 to-black/30"></div>
           <div class="header-content relative z-10 flex items-end justify-between h-full">
-            <!-- 左侧：标题 + 副标题（左下角） -->
             <div class="header-info text-left">
               <h1 class="moments-title text-xl md:text-2xl lg:text-3xl font-bold mb-1">{i18n(I18nKey.memos)}</h1>
               <p class="moments-subtitle text-sm md:text-base lg:text-lg opacity-90">{i18n(I18nKey.memosSubtitle)}</p>
             </div>
-
-            <!-- 右侧：数量（右下角） -->
             <div class="header-stats text-right">
               <div class="stat-item text-center inline-block">
                 <span class="stat-number text-lg md:text-xl lg:text-2xl font-bold text-[var(--primary)] block">{moments.length}</span>
@@ -80,14 +79,13 @@ function formatTime(dateString: string): string {
           </div>
         </div>
 
-        <!-- 短文列表 -->
+        <!-- 时间线 -->
         <div class="moments-timeline">
           <div class="timeline-list space-y-4">
           {moments.map(moment => (
             <div class="moment-item card-base p-4 md:p-6 lg:p-8 hover:shadow-lg transition-all">
               <div class="moment-content">
                 <div class="moment-text text-sm md:text-base lg:text-lg text-90 leading-relaxed mb-3 md:mb-4" set:html={moment.content} />
-                {/* 图片网格：点击放大 + 无空白 */}
                 {moment.images.length > 0 && (
                   <div class="moment-images grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-3 lg:gap-4 mb-3 md:mb-4">
                     {moment.images.map((image: string) => (
@@ -96,7 +94,7 @@ function formatTime(dateString: string): string {
                           src={image}
                           data-src={image}
                           alt={i18n(I18nKey.memosImage)}
-                          class="block max-w-[180px] max-h-[180px] object-contain cursor-pointer hover:scale-105 transition-transform js-lightbox"
+                          class="js-lightbox block max-w-[180px] max-h-[180px] object-contain cursor-pointer hover:scale-105 transition-transform"
                           loading="lazy"
                         />
                       </div>
@@ -128,40 +126,44 @@ function formatTime(dateString: string): string {
 </MainGridLayout>
 
 <!-- 简易灯箱 -->
-<div id="lightbox" class="lightbox hidden" onclick="closeLightbox()">
+<div id="lightbox" class="lightbox hidden">
   <img id="lightbox-img" class="lightbox-img" src="" alt="preview">
 </div>
 
 <script>
-  // 灯箱节点
-  const box = document.getElementById('lightbox') as HTMLDivElement;
-  const img = document.getElementById('lightbox-img') as HTMLImageElement;
+/* ---------- 灯箱逻辑（无行内调用，无全局函数） ---------- */
+const box  = document.getElementById('lightbox');
+const img = document.getElementById('lightbox-img') as HTMLImageElement;
 
-  // 事件委托：点击任意 .js-lightbox 图片
-  document.addEventListener('click', (e) => {
-    const el = e.target as HTMLElement;
-    if (el.classList.contains('js-lightbox')) {
-      const src = el.dataset.src;
-      if (src) {
-        img.src = src;
-        box.classList.remove('hidden');
-      }
+/* 1. 事件委托：点击任意图片打开 */
+document.querySelectorAll('.moment-images').forEach(g =>
+  g.addEventListener('click', e => {
+    const target = e.target as Element;
+    const el = target.closest('.js-lightbox');
+    if (!el) return;
+    const src = (el as HTMLElement).dataset.src;
+    if (src && img) {
+      img.src = src;
+      box?.classList.remove('hidden');
     }
-  });
+  })
+);
 
-  // 点击遮罩关闭
-  box?.addEventListener('click', () => box.classList.add('hidden'));
+/* 2. 点击遮罩关闭 */
+if (box) {
+  box.addEventListener('click', () => box.classList.add('hidden'));
+}
 </script>
 
 <style>
   /* 头部背景图与遮罩 */
   .moments-header {
-    position: relative;
     background-image: url('https://img.314926.xyz/images/2025/09/22/20250922193025414.webp');
     background-size: cover;
     background-position: center;
     border-radius: 12px;
     padding: 2.5rem 1rem;
+    position: relative;
   }
   .moments-header::before {
     content: '';
@@ -204,9 +206,7 @@ function formatTime(dateString: string): string {
     z-index: 9999;
     cursor: zoom-out;
   }
-  .lightbox.hidden {
-    display: none;
-  }
+  .lightbox.hidden { display: none; }
   .lightbox-img {
     max-width: 90vw;
     max-height: 90vh;
@@ -215,6 +215,7 @@ function formatTime(dateString: string): string {
     cursor: default;
   }
 
+  /* 响应式微调 */
   @media (max-width: 640px) {
     .moments-header { padding: 2rem 1rem; }
     .header-content { flex-direction: column; align-items: flex-start; gap: .75rem; }
